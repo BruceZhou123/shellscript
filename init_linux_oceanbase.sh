@@ -50,6 +50,7 @@ kernelset()
  chk_nf=`cat /etc/sysctl.conf | grep conntrack |wc -l`
  if [ $chk_nf -eq 0 ];then
   cat >>/etc/sysctl.conf<<EOF
+vm.swappiness = 0  
 net.core.somaxconn = 2048
 net.core.netdev_max_backlog = 10000
 net.core.rmem_default = 16777216
